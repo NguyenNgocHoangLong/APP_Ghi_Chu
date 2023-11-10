@@ -28,46 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.recordingLabel = new System.Windows.Forms.Label();
-            this.startOrPause = new System.Windows.Forms.Button();
+            this.bntStartRecord = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
+            this.btnStopRecord = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnPlay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // recordingLabel
             // 
             this.recordingLabel.AutoSize = true;
-            this.recordingLabel.Location = new System.Drawing.Point(12, 9);
+            this.recordingLabel.Location = new System.Drawing.Point(16, 11);
+            this.recordingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.recordingLabel.Name = "recordingLabel";
-            this.recordingLabel.Size = new System.Drawing.Size(0, 13);
+            this.recordingLabel.Size = new System.Drawing.Size(0, 16);
             this.recordingLabel.TabIndex = 0;
             // 
-            // startOrPause
+            // bntStartRecord
             // 
-            this.startOrPause.Location = new System.Drawing.Point(12, 25);
-            this.startOrPause.Name = "startOrPause";
-            this.startOrPause.Size = new System.Drawing.Size(118, 23);
-            this.startOrPause.TabIndex = 1;
-            this.startOrPause.Text = "Start";
-            this.startOrPause.UseVisualStyleBackColor = true;
-            this.startOrPause.Click += new System.EventHandler(this.startOrPause_Click);
+            this.bntStartRecord.Location = new System.Drawing.Point(182, 247);
+            this.bntStartRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bntStartRecord.Name = "bntStartRecord";
+            this.bntStartRecord.Size = new System.Drawing.Size(157, 28);
+            this.bntStartRecord.TabIndex = 1;
+            this.bntStartRecord.Text = "Start";
+            this.bntStartRecord.UseVisualStyleBackColor = true;
+            this.bntStartRecord.Click += new System.EventHandler(this.bntStartRecord_Click);
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(136, 25);
+            this.save.Location = new System.Drawing.Point(500, 247);
+            this.save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.Size = new System.Drawing.Size(100, 28);
             this.save.TabIndex = 2;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
             // 
+            // btnStopRecord
+            // 
+            this.btnStopRecord.Location = new System.Drawing.Point(311, 180);
+            this.btnStopRecord.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStopRecord.Name = "btnStopRecord";
+            this.btnStopRecord.Size = new System.Drawing.Size(157, 28);
+            this.btnStopRecord.TabIndex = 3;
+            this.btnStopRecord.Text = "Stop";
+            this.btnStopRecord.UseVisualStyleBackColor = true;
+            this.btnStopRecord.Click += new System.EventHandler(this.btnStopRecord_Click);
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Location = new System.Drawing.Point(540, 192);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(157, 28);
+            this.btnPlay.TabIndex = 4;
+            this.btnPlay.Text = "Play";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
             // RecordingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(225, 61);
+            this.ClientSize = new System.Drawing.Size(759, 338);
+            this.Controls.Add(this.btnPlay);
+            this.Controls.Add(this.btnStopRecord);
             this.Controls.Add(this.save);
-            this.Controls.Add(this.startOrPause);
+            this.Controls.Add(this.bntStartRecord);
             this.Controls.Add(this.recordingLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RecordingForm";
             this.Text = "RecordingForm";
             this.ResumeLayout(false);
@@ -78,7 +110,10 @@
         #endregion
 
         private System.Windows.Forms.Label recordingLabel;
-        private System.Windows.Forms.Button startOrPause;
+        private System.Windows.Forms.Button bntStartRecord;
         private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button btnStopRecord;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnPlay;
     }
 }

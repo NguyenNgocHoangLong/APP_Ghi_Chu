@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,94 +13,92 @@ namespace DoAn
 {
     public partial class Form1 : Form
     {
-        DataTable notes = new DataTable();
-        bool editing = false;
+
         public Form1()
         {
             InitializeComponent();
         }
+        public event EventHandler NoteSaved;
+        public event EventHandler NoteDelete;
+
+
+
+        NoteAppEntities db = new NoteAppEntities();
+        Notetext nt = new Notetext();
+        int id = 0;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            notes.Columns.Add("Title");
-            notes.Columns.Add("Note");
-
-            previousNotes.DataSource = notes;
+            ClearData();
+            SetDataInGridView();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void ClearData()
         {
-
+            titleBox.Text = noteBox.Text = string.Empty;
+            deleteButton.Enabled = false;
+            saveButton.Text = "Save";
+            id = 0;
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        public void SetDataInGridView()
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loadButton_Click(object sender, EventArgs e)
-        {
-            titleBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[0].ToString();
-            noteBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[1].ToString();
-            editing = true;
-        }
-
-        private void newButton_Click(object sender, EventArgs e)
-        {
-            titleBox.Text = "";
-            noteBox.Text = "";
+            previousNotes.AutoGenerateColumns = false;
+            previousNotes.DataSource = db.Notetexts.ToList<Notetext>();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("Are you sure you want to delete this record ?", "Delete ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                notes.Rows[previousNotes.CurrentCell.RowIndex].Delete();
+                db.Notetexts.Remove(nt);
+                db.SaveChanges();
+                ClearData();
+                SetDataInGridView();
+                MessageBox.Show("Record Deleted Successfully");
             }
-            catch (Exception ex) { Console.WriteLine("Not a valid note"); }
+            OnNoteDelete();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if(editing)
-            {
-                notes.Rows[previousNotes.CurrentCell.RowIndex]["Title"] = titleBox.Text;
-                notes.Rows[previousNotes.CurrentCell.RowIndex]["Note"] = noteBox.Text;
-            }
+            nt.title = titleBox.Text.Trim();
+            nt.content = noteBox.Text.Trim();
+            if (id > 0)
+                db.Entry(nt).State = EntityState.Modified;
             else
             {
-                notes.Rows.Add(titleBox.Text, noteBox.Text);
+                db.Notetexts.Add(nt);
             }
-            titleBox.Text = "";
-            noteBox.Text = "";
-            editing = false;
+            db.SaveChanges();
+            ClearData();
+            SetDataInGridView();
+            MessageBox.Show("Record Save Successfully");
+            OnNoteSaved();
         }
 
-        private void previousNotes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        protected virtual void OnNoteSaved()
         {
-
+            NoteSaved?.Invoke(this, EventArgs.Empty);
         }
-
-        private void previousNotes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        protected virtual void OnNoteDelete()
         {
-            titleBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[0].ToString();
-            noteBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[1].ToString();
-            editing = true;
+            NoteDelete?.Invoke(this, EventArgs.Empty);
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void previousNotes_DoubleClick(object sender, EventArgs e)
+        {
+            if (previousNotes.CurrentCell.RowIndex != -1)
+            {
+                id = Convert.ToInt32(previousNotes.CurrentRow.Cells["noteid"].Value);
+                nt = db.Notetexts.Where(x => x.id == id).FirstOrDefault();
+                titleBox.Text = nt.title;
+                noteBox.Text = nt.content;
+            }
+            saveButton.Text = "Update";
+            deleteButton.Enabled = true;
         }
     }
 }

@@ -36,73 +36,82 @@
             this.previousNotes = new System.Windows.Forms.DataGridView();
             this.deleteButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.newButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.noteid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(23, 36);
+            this.label2.Location = new System.Drawing.Point(31, 44);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(493, 25);
+            this.label2.Size = new System.Drawing.Size(657, 31);
             this.label2.TabIndex = 1;
             this.label2.Text = "Title:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1119, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1492, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // noteBox
             // 
-            this.noteBox.Location = new System.Drawing.Point(26, 115);
+            this.noteBox.Location = new System.Drawing.Point(35, 142);
+            this.noteBox.Margin = new System.Windows.Forms.Padding(4);
             this.noteBox.Multiline = true;
             this.noteBox.Name = "noteBox";
-            this.noteBox.Size = new System.Drawing.Size(502, 414);
+            this.noteBox.Size = new System.Drawing.Size(668, 509);
             this.noteBox.TabIndex = 3;
-            this.noteBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // titleBox
             // 
-            this.titleBox.Location = new System.Drawing.Point(26, 64);
+            this.titleBox.Location = new System.Drawing.Point(35, 79);
+            this.titleBox.Margin = new System.Windows.Forms.Padding(4);
             this.titleBox.Name = "titleBox";
-            this.titleBox.Size = new System.Drawing.Size(502, 20);
+            this.titleBox.Size = new System.Drawing.Size(668, 22);
             this.titleBox.TabIndex = 4;
-            this.titleBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(23, 87);
+            this.label3.Location = new System.Drawing.Point(31, 107);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(493, 25);
+            this.label3.Size = new System.Drawing.Size(657, 31);
             this.label3.TabIndex = 5;
             this.label3.Text = "Note:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // previousNotes
             // 
             this.previousNotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.previousNotes.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.previousNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.previousNotes.Location = new System.Drawing.Point(688, 115);
+            this.previousNotes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.noteid,
+            this.Title,
+            this.Content});
+            this.previousNotes.Location = new System.Drawing.Point(843, 79);
+            this.previousNotes.Margin = new System.Windows.Forms.Padding(4);
             this.previousNotes.Name = "previousNotes";
-            this.previousNotes.Size = new System.Drawing.Size(419, 414);
+            this.previousNotes.RowHeadersWidth = 51;
+            this.previousNotes.Size = new System.Drawing.Size(649, 510);
             this.previousNotes.TabIndex = 6;
-            this.previousNotes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.previousNotes_CellContentClick);
-            this.previousNotes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.previousNotes_CellDoubleClick);
+            this.previousNotes.DoubleClick += new System.EventHandler(this.previousNotes_DoubleClick);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(277, 535);
+            this.deleteButton.Location = new System.Drawing.Point(369, 658);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(123, 46);
+            this.deleteButton.Size = new System.Drawing.Size(164, 57);
             this.deleteButton.TabIndex = 8;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -110,42 +119,54 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(156, 535);
+            this.saveButton.Location = new System.Drawing.Point(208, 658);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(115, 46);
+            this.saveButton.Size = new System.Drawing.Size(153, 57);
             this.saveButton.TabIndex = 9;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // newButton
-            // 
-            this.newButton.Location = new System.Drawing.Point(26, 535);
-            this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(124, 46);
-            this.newButton.TabIndex = 10;
-            this.newButton.Text = "New Note";
-            this.newButton.UseVisualStyleBackColor = true;
-            this.newButton.Click += new System.EventHandler(this.newButton_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(406, 535);
+            this.button1.Location = new System.Drawing.Point(541, 658);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 46);
+            this.button1.Size = new System.Drawing.Size(163, 57);
             this.button1.TabIndex = 11;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // noteid
+            // 
+            this.noteid.DataPropertyName = "id";
+            this.noteid.HeaderText = "noteid";
+            this.noteid.MinimumWidth = 6;
+            this.noteid.Name = "noteid";
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "title";
+            this.Title.HeaderText = "Title";
+            this.Title.MinimumWidth = 6;
+            this.Title.Name = "Title";
+            // 
+            // Content
+            // 
+            this.Content.DataPropertyName = "content";
+            this.Content.HeaderText = "Content";
+            this.Content.MinimumWidth = 6;
+            this.Content.Name = "Content";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1119, 593);
+            this.ClientSize = new System.Drawing.Size(1492, 730);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.newButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.previousNotes);
@@ -154,6 +175,7 @@
             this.Controls.Add(this.noteBox);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Note App";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -172,8 +194,10 @@
         private System.Windows.Forms.DataGridView previousNotes;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noteid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
     }
 }
 
