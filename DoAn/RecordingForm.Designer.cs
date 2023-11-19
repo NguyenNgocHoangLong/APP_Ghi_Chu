@@ -35,6 +35,8 @@
             this.btnStopRecord = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnPlay = new System.Windows.Forms.Button();
+            this.lblElapsedTime = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // recordingLabel
@@ -48,10 +50,10 @@
             // 
             // bntStartRecord
             // 
-            this.bntStartRecord.Location = new System.Drawing.Point(182, 247);
-            this.bntStartRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bntStartRecord.Location = new System.Drawing.Point(43, 247);
+            this.bntStartRecord.Margin = new System.Windows.Forms.Padding(4);
             this.bntStartRecord.Name = "bntStartRecord";
-            this.bntStartRecord.Size = new System.Drawing.Size(157, 28);
+            this.bntStartRecord.Size = new System.Drawing.Size(132, 28);
             this.bntStartRecord.TabIndex = 1;
             this.bntStartRecord.Text = "Start";
             this.bntStartRecord.UseVisualStyleBackColor = true;
@@ -59,47 +61,61 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(500, 247);
-            this.save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save.Location = new System.Drawing.Point(567, 247);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(100, 28);
+            this.save.Size = new System.Drawing.Size(132, 28);
             this.save.TabIndex = 2;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
             // 
             // btnStopRecord
             // 
-            this.btnStopRecord.Location = new System.Drawing.Point(311, 180);
+            this.btnStopRecord.Location = new System.Drawing.Point(210, 247);
             this.btnStopRecord.Margin = new System.Windows.Forms.Padding(4);
             this.btnStopRecord.Name = "btnStopRecord";
-            this.btnStopRecord.Size = new System.Drawing.Size(157, 28);
+            this.btnStopRecord.Size = new System.Drawing.Size(132, 28);
             this.btnStopRecord.TabIndex = 3;
             this.btnStopRecord.Text = "Stop";
             this.btnStopRecord.UseVisualStyleBackColor = true;
             this.btnStopRecord.Click += new System.EventHandler(this.btnStopRecord_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(540, 192);
+            this.btnPlay.Location = new System.Drawing.Point(393, 247);
             this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(157, 28);
+            this.btnPlay.Size = new System.Drawing.Size(132, 28);
             this.btnPlay.TabIndex = 4;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // lblElapsedTime
+            // 
+            this.lblElapsedTime.AutoSize = true;
+            this.lblElapsedTime.Location = new System.Drawing.Point(327, 103);
+            this.lblElapsedTime.Name = "lblElapsedTime";
+            this.lblElapsedTime.Size = new System.Drawing.Size(55, 16);
+            this.lblElapsedTime.TabIndex = 5;
+            this.lblElapsedTime.Text = "00:00:00";
             // 
             // RecordingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 338);
+            this.Controls.Add(this.lblElapsedTime);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnStopRecord);
             this.Controls.Add(this.save);
             this.Controls.Add(this.bntStartRecord);
             this.Controls.Add(this.recordingLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RecordingForm";
             this.Text = "RecordingForm";
             this.ResumeLayout(false);
@@ -115,5 +131,7 @@
         private System.Windows.Forms.Button btnStopRecord;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Label lblElapsedTime;
+        private System.Windows.Forms.Timer timer2;
     }
 }
