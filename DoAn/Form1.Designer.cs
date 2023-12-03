@@ -34,12 +34,14 @@
             this.titleBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.previousNotes = new System.Windows.Forms.DataGridView();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.noteid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,13 +100,34 @@
             this.noteid,
             this.Title,
             this.Content});
-            this.previousNotes.Location = new System.Drawing.Point(843, 79);
+            this.previousNotes.Location = new System.Drawing.Point(843, 141);
             this.previousNotes.Margin = new System.Windows.Forms.Padding(4);
             this.previousNotes.Name = "previousNotes";
             this.previousNotes.RowHeadersWidth = 51;
             this.previousNotes.Size = new System.Drawing.Size(649, 510);
             this.previousNotes.TabIndex = 6;
             this.previousNotes.DoubleClick += new System.EventHandler(this.previousNotes_DoubleClick);
+            // 
+            // noteid
+            // 
+            this.noteid.DataPropertyName = "id";
+            this.noteid.HeaderText = "noteid";
+            this.noteid.MinimumWidth = 6;
+            this.noteid.Name = "noteid";
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "title";
+            this.Title.HeaderText = "Title";
+            this.Title.MinimumWidth = 6;
+            this.Title.Name = "Title";
+            // 
+            // Content
+            // 
+            this.Content.DataPropertyName = "content";
+            this.Content.HeaderText = "Content";
+            this.Content.MinimumWidth = 6;
+            this.Content.Name = "Content";
             // 
             // deleteButton
             // 
@@ -139,26 +162,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // noteid
+            // txtSearch
             // 
-            this.noteid.DataPropertyName = "id";
-            this.noteid.HeaderText = "noteid";
-            this.noteid.MinimumWidth = 6;
-            this.noteid.Name = "noteid";
+            this.txtSearch.Location = new System.Drawing.Point(843, 79);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(215, 22);
+            this.txtSearch.TabIndex = 12;
             // 
-            // Title
+            // btnSearch
             // 
-            this.Title.DataPropertyName = "title";
-            this.Title.HeaderText = "Title";
-            this.Title.MinimumWidth = 6;
-            this.Title.Name = "Title";
-            // 
-            // Content
-            // 
-            this.Content.DataPropertyName = "content";
-            this.Content.HeaderText = "Content";
-            this.Content.MinimumWidth = 6;
-            this.Content.Name = "Content";
+            this.btnSearch.Location = new System.Drawing.Point(1112, 65);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(96, 50);
+            this.btnSearch.TabIndex = 13;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Form1
             // 
@@ -166,6 +185,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1492, 730);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.deleteButton);
@@ -198,6 +219,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noteid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Content;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

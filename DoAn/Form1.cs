@@ -100,5 +100,24 @@ namespace DoAn
             saveButton.Text = "Update";
             deleteButton.Enabled = true;
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim();
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                var searchResult = db.Notetexts.Where(x => x.title.Contains(searchText)).ToList();
+                previousNotes.DataSource = searchResult;
+                if (searchResult.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy note.");
+                }
+            }
+            else
+            {
+                SetDataInGridView();
+            }
+        }
     }
 }
