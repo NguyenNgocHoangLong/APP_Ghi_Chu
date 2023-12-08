@@ -13,6 +13,7 @@ namespace DoAn
 {
     public partial class Form1 : Form
     {
+        private Notetext noteToEdit;
 
         public Form1()
         {
@@ -21,6 +22,13 @@ namespace DoAn
         public event EventHandler NoteSaved;
         public event EventHandler NoteDelete;
 
+        public Form1(Notetext note) : this()
+        {
+            noteToEdit = note;
+            id = noteToEdit.id;
+            titleBox.Text = noteToEdit.title;
+            noteBox.Text = noteToEdit.content;
+        }
 
 
         NoteAppEntities db = new NoteAppEntities();
@@ -29,7 +37,6 @@ namespace DoAn
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ClearData();
             SetDataInGridView();
         }
         public void ClearData()
@@ -60,20 +67,44 @@ namespace DoAn
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            nt.title = titleBox.Text.Trim();
-            nt.content = noteBox.Text.Trim();
-            if (id > 0)
-                db.Entry(nt).State = EntityState.Modified;
+            if (noteToEdit != null)
+            {
+                var existingNote = db.Notetexts.Find(noteToEdit.id);
+
+                if (existingNote != null)
+                {
+                    existingNote.title = titleBox.Text.Trim();
+                    existingNote.content = noteBox.Text.Trim();
+
+                    db.SaveChanges();
+                    ClearData();
+                    SetDataInGridView();
+                    MessageBox.Show("Cập nhật ghi chú thành công");
+                    OnNoteSaved();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy ghi chú để cập nhật.");
+                }
+            }
             else
             {
-                db.Notetexts.Add(nt);
+                // Tạo mới đối tượng Notetext để thêm vào cơ sở dữ liệu
+                Notetext newNote = new Notetext
+                {
+                    title = titleBox.Text.Trim(),
+                    content = noteBox.Text.Trim()
+                };
+
+                db.Notetexts.Add(newNote);
+                db.SaveChanges();
+                ClearData();
+                SetDataInGridView();
+                MessageBox.Show("Thêm ghi chú mới thành công");
+                OnNoteSaved();
             }
-            db.SaveChanges();
-            ClearData();
-            SetDataInGridView();
-            MessageBox.Show("Record Save Successfully");
-            OnNoteSaved();
         }
+
 
         protected virtual void OnNoteSaved()
         {
