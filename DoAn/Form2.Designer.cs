@@ -98,6 +98,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -111,6 +113,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(47, 36);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
@@ -136,13 +139,16 @@
             // 
             this.paginationPanel.Location = new System.Drawing.Point(356, 561);
             this.paginationPanel.Name = "paginationPanel";
-            this.paginationPanel.Size = new System.Drawing.Size(200, 100);
+            this.paginationPanel.Size = new System.Drawing.Size(115, 89);
             this.paginationPanel.TabIndex = 0;
+            this.paginationPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paginationPanel_Paint);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1144, 794);
             this.Controls.Add(this.paginationPanel);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -150,7 +156,7 @@
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
-            this.Text = "Home";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

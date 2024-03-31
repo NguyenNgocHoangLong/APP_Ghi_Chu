@@ -98,6 +98,7 @@ namespace DoAn
                 contentLabel.Size = new Size(notePanel.Width - 10, notePanel.Height - titleLabel.Height - 15);
                 contentLabel.Location = new Point(5, titleLabel.Bottom + 5); // Đặt vị trí x, y cho contentLabel trong notePanel
 
+
                 // Thêm các control vào notePanel
                 notePanel.Controls.Add(contentLabel);
                 notePanel.Controls.Add(titleLabel);
@@ -223,5 +224,9 @@ namespace DoAn
 
         }
 
+        private void paginationPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.noteBox = new System.Windows.Forms.TextBox();
@@ -47,10 +48,10 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(31, 44);
+            this.label2.Location = new System.Drawing.Point(35, 44);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(657, 31);
+            this.label2.Size = new System.Drawing.Size(669, 31);
             this.label2.TabIndex = 1;
             this.label2.Text = "Title:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -83,10 +84,10 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(31, 107);
+            this.label3.Location = new System.Drawing.Point(35, 107);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(657, 31);
+            this.label3.Size = new System.Drawing.Size(668, 31);
             this.label3.TabIndex = 5;
             this.label3.Text = "Note:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,6 +185,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1492, 730);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);

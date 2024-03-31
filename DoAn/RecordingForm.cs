@@ -140,5 +140,10 @@ namespace DoAn
 
             // Thêm code để bắt đầu phát lại âm thanh ở đây
         }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
